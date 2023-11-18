@@ -10,3 +10,4 @@ public class TestJunit {
       assertEquals("I am done with JUnit setup", str);
    }
 }
+//bnla bl
