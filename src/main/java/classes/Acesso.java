@@ -25,7 +25,7 @@ import java.time.Period;
  * @since may 2021
  * @version 1.0
  */
-public abstract class Acesso {
+public abstract class Acesso  {
 
     protected LocalDateTime entrada;
     protected LocalDateTime saida;
@@ -237,5 +237,12 @@ public abstract class Acesso {
     public abstract double calculaValor(Duration duracao, double tarifa);
 
     public abstract void setEntrada(LocalDate dia, LocalTime hora) throws EstacionamentoFechadoException;
+
+    //criado com a solução oferecida pelo vscode
+    public void setEntrada(LocalDateTime of) {
+    }
+
+    public void setSaida(LocalDateTime of) {
+    }
 
 }
