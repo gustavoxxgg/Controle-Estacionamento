@@ -238,4 +238,7 @@ public abstract class Acesso {
 
     public abstract void setEntrada(LocalDate dia, LocalTime hora) throws EstacionamentoFechadoException;
 
+    public void setEntrada(LocalDateTime of) {}
+    public void setSaida(LocalDateTime of) {}
+
 }

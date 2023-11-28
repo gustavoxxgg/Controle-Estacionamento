@@ -7,9 +7,9 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class SistemaEstacionamento {
-	private CadastroVeiculos veiculos = new CadastroVeiculos();
-	private CadastroProprietarios proprietarios = new CadastroProprietarios();
-	private CadastroAcessos acessos = new CadastroAcessos();
+    CadastroVeiculos veiculos = new CadastroVeiculos();
+    CadastroProprietarios proprietarios = new CadastroProprietarios();
+    CadastroAcessos acessos = new CadastroAcessos();
 
     public void cadastrarVeiculo(Veiculo veiculo) {
         veiculos.cadastrar(veiculo);
@@ -21,19 +21,19 @@ public class SistemaEstacionamento {
         acessos.cadastrar(acesso);
     }
     public void listarAcessos(){
-    	veiculos.listarAcessos();
+        veiculos.listarAcessos();
     }
     public void listarVeiculos(){
-    	veiculos.listar();
+        veiculos.listar();
     }
     public void listarProprietarios(){
-    	proprietarios.listar();
+        proprietarios.listar();
     }
     public Proprietario buscarProprietario(String cnh) {
-    	return proprietarios.buscar(cnh);
+        return proprietarios.buscar(cnh);
     }
     public Veiculo buscarVeiculo(String numeroPlaca) {
-    	return veiculos.buscar(numeroPlaca);
+        return veiculos.buscar(numeroPlaca);
     }
 
     public List<Acesso> getAcessos() {

@@ -5,6 +5,9 @@
  */
 package exceptions;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 /**
  * <p>
  * Classe <b>EstacionamentoFechadoException</b> </p>
@@ -21,6 +24,9 @@ public class EstacionamentoFechadoException extends Exception {
 
     public EstacionamentoFechadoException() {
         super("Exception in thread:com.grupo10.estacionamento.exceptions.DadosPessoaisIncompletosException");
+    }
+
+    public void setEntrada(LocalDate any, LocalTime any2) {
     }
 
 }
