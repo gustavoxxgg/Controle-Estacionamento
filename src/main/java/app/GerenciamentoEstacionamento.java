@@ -11,12 +11,13 @@ import classes.AcessoPorHora;
 import classes.AcessoPorMinuto;
 import classes.AcessoPorPernoite;
 import classes.AcessoPorQuinze;
+//import classes.AcessoPorQuinze;
 import exceptions.EstacionamentoFechadoException;
 import exceptions.PeriodoInvalidoException;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import javax.swing.JOptionPane;
+//import java.time.LocalTime;
+//import javax.swing.JOptionPane;
 
 /**
  * <p>

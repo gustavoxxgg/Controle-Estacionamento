@@ -7,9 +7,9 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class SistemaEstacionamento {
-	private CadastroVeiculos veiculos = new CadastroVeiculos();
-	private CadastroProprietarios proprietarios = new CadastroProprietarios();
-	private CadastroAcessos acessos = new CadastroAcessos();
+	CadastroVeiculos veiculos = new CadastroVeiculos();
+	CadastroProprietarios proprietarios = new CadastroProprietarios();
+	CadastroAcessos acessos = new CadastroAcessos();
 
     public void cadastrarVeiculo(Veiculo veiculo) {
         veiculos.cadastrar(veiculo);

@@ -40,7 +40,7 @@ public class CadastroVeiculosTest {
 
     @Test
     public void testBuscar() {
-        Veiculo veiculo = new Veiculo("ABC123", "Toyota", "Corolla");
+        Veiculo veiculo = new Veiculo("Corolla", "Toyota", "ABC123");
         cadastroVeiculos.cadastrar(veiculo);
 
         Veiculo encontrado = cadastroVeiculos.buscar("ABC123");
@@ -52,7 +52,7 @@ public class CadastroVeiculosTest {
 
     @Test
     public void testListar() {
-        Veiculo veiculo1 = new Veiculo("ABC123", "Toyota", "Corolla");
+        Veiculo veiculo1 = new Veiculo("Toyota", "Corolla", "ABC123");
         //Veiculo veiculo2 = new Veiculo("XYZ789", "Honda", "Civic");
 
         cadastroVeiculos.cadastrar(veiculo1);
@@ -73,13 +73,13 @@ public class CadastroVeiculosTest {
 
             // Verifica se a saída contém as informações esperadas
             assertTrue(consoleOutput.contains("Veiculo 0:"));
-           // assertTrue(consoleOutput.contains("Veiculo 1:"));
+            assertTrue(consoleOutput.contains("Veiculo 1:"));
             assertTrue(consoleOutput.contains("Marca: Toyota"));
-           // assertTrue(consoleOutput.contains("Marca: Honda"));
+            assertTrue(consoleOutput.contains("Marca: Honda"));
             assertTrue(consoleOutput.contains("Modelo: Corolla"));
-           // assertTrue(consoleOutput.contains("Modelo: Civic"));
+            assertTrue(consoleOutput.contains("Modelo: Civic"));
             assertTrue(consoleOutput.contains("Placa: ABC123"));
-            //assertTrue(consoleOutput.contains("Placa: XYZ789"));
+            assertTrue(consoleOutput.contains("Placa: XYZ789"));
         } finally {
             System.setOut(originalOut);
         }

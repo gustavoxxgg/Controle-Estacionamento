@@ -196,7 +196,7 @@ public class Veiculo {
                 	.append("                 |    Dia:"+saida.getDayOfMonth()+"/"+saida.getMonthValue()+"/"+saida.getYear())
                 	.append("\nHora: "+entrada.toLocalTime().toString())
                 	.append("                    |    Hora:"+saida.toLocalTime().toString())
-                	.append("\nTempo de permanência: ").append(acesso.duracao.toHoursPart() + "h " + acesso.duracao.toMinutesPart() + "min")
+                	.append("\nTempo de permanência: ").append(acesso.duracao.toHours() + "h " + acesso.duracao.toMinutes() + "min")
                 	.append("\nValor a ser cobrado: ").append(acesso.getValor() + "R$\n\n");
                 i++;
             }
