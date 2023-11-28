@@ -40,7 +40,7 @@ public class CadastroVeiculosTest {
 
     @Test
     public void testBuscar() {
-        Veiculo veiculo = new Veiculo("ABC123", "Toyota", "Corolla");
+        Veiculo veiculo = new Veiculo("Corolla", "Toyota", "ABC123");
         cadastroVeiculos.cadastrar(veiculo);
 
         Veiculo encontrado = cadastroVeiculos.buscar("ABC123");

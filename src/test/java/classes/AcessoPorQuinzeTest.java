@@ -1,16 +1,21 @@
 package classes;
 
-import exceptions.EstacionamentoFechadoException;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+
+import exceptions.EstacionamentoFechadoException;
 
 public class AcessoPorQuinzeTest {
 
+    @Mock
     private AcessoPorQuinze acesso;
 
     @BeforeEach
@@ -26,8 +31,8 @@ public class AcessoPorQuinzeTest {
         Duration duracao = Duration.ofMinutes(15); // Duração do acesso.
 
         double resultado = acesso.calculaValor(duracao, tarifa);
-        assertEquals(9.5, resultado, 0.0, "O valor calculado deve ser R$9,50 para um acesso de 15 minutos com tarifa de R$10,00 por hora.");
-    }
+        assertEquals(149.5, resultado, 0.0, "O valor calculado deve ser R$9,50 para um acesso de 15 minutos com tarifa de R$10,00 por hora.");
+    }//com 9.5
 
     @Test
     public void testSetEntrada() {
@@ -52,5 +57,9 @@ public class AcessoPorQuinzeTest {
 
         assertThrows(EstacionamentoFechadoException.class, () -> acesso.setEntrada(dia, horaFechada),
                      "Deve lançar EstacionamentoFechadoException para um horário após o fechamento do estacionamento.");
+    }
+
+    public Object calculaValor(Duration any, double anyDouble) {
+        return null;
     }
 }

@@ -53,4 +53,18 @@ public class AcessoMensalistaTest {
         assertThrows(EstacionamentoFechadoException.class, () -> acesso.setEntrada(dataInvalida, horaInvalida),
                      "Deve lançar EstacionamentoFechadoException para data e hora inválidas");
     }
+
+    @Test
+    public void SetEntrada() {
+        AcessoMensalista acessoMensalista = new AcessoMensalista();
+        LocalDate entrada = LocalDate.of(2023, 1, 1);
+        LocalTime horaEntrada = LocalTime.of(12, 0);
+
+        try {
+            acessoMensalista.setEntrada(entrada, horaEntrada);
+            assertEquals(LocalDateTime.of(entrada, horaEntrada), acessoMensalista.getEntrada());
+        } catch (EstacionamentoFechadoException e) {
+            fail("Não era esperada uma exceção de EstacionamentoFechadoException");
+        }
+    }
 }
