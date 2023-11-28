@@ -10,23 +10,12 @@ import exceptions.DadosPessoaisIncompletosException;
 import exceptions.DadosVeiculosIncompletosException;
 import exceptions.EstacionamentoFechadoException;
 import exceptions.PeriodoInvalidoException;
-
-//import java.text.spi.NumberFormatProvider;
-//import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-//import javax.swing.JOptionPane;
-//import java.util.List;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
 import java.util.Scanner;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 /**
  * <p>
  * Classe <b>Main</b> Recebe o método main que é o runner de toda a
@@ -133,10 +122,6 @@ public class Main {
       
         try {
 
-        /*
-        -Instanciando o Veiculo com o método de substuição de Liskov;
-        -Polimorfismo;
-         */
         Veiculo vm = new VeiculoMensalista();
 
         System.out.println("Digite a marca do veículo:");
@@ -286,47 +271,11 @@ public class Main {
     }
     
     public static void menu() {
-        int x;
+        int escolha;
         do {
-            /*
-            1-Fazer um menu textual para que o usuário possa escolher qual operação
-            deseja realizar;
-            2-Implementar os casos no switch case
-             */
+            escolha = obterEscolhaMenu();
 
-           System.out.println("Digite\n"
-           + "1-Cadastrar veículo rotativo;\n"
-                + "2-Cadastrar proprietário;\n"
-                + "3-Cadastrar veículo mensalista;\n"
-                + "4-Registrar acesso de usuário rotativo;\n"
-                + "5-Registrar acesso de usuário mensalista;\n"
-                + "6-Exibir veículos cadastrados;\n"
-                + "7-Exibir proprietários;\n"
-                + "8-Exibir listas de acessos;\n"
-                + "9-Exibir faturamento.\n"
-                + "0-Sair"
-           );
-            /*
-              
-              1-Ler a opção do usuário
-             */
-/*            *//*
-              A string indisponivel será utilizada temporariamente para reportar 
-              indisponibilidade de alguma funcionalidade;
-             *//*
-            String indisponivel = "Funcionalidade não implementada";*/
-
-            try{
-                /*System.out.println("escolha uma opção: ");
-                strx = teclado.nextLine();*/
-                x = Integer.parseInt(teclado.nextLine());
-
-            }catch(NumberFormatException e){
-                x = -1;
-                System.out.println("Entrada invalida. Digite um numero. ");
-            }
-
-            switch (x) {
+            switch (escolha) {
                 case 1:
                 	menuCadastrarRotativo();
                     break;
@@ -343,18 +292,9 @@ public class Main {
                 	menuAcessoMensalista();
                     break;
                 case 6:
-                    /* 1-Chamar o método listar do atributo veic1ulos
-                         que é uma lista guarda objetos da classe Veiculo
-                         por meio desta referênica;                        
-                     */
                 	sisEstacionamento.listarVeiculos();
                     break;
                 case 7:
-
-                    /* 1-Chamar o método listar do atributo proprietarios
-                         que é uma lista guarda objetos da classe Proprietario
-                         por meio desta referênica;                        
-                     */
                 	sisEstacionamento.listarProprietarios();
                     break;
                 case 8:
@@ -364,40 +304,57 @@ public class Main {
                     exibeFaturamento();
                     break;
                 case 0:
-                    /*
-                     1-Exibir mensagem de despedida amigável ao usuário;
-                     */
-                    System.out.println( "         UNB © GRUPO10  "
-                            + "\n"
-                            + "\nLucas- Paulo- Adrian- Arthur");
-                    x = 0;
+                    exibirMensagemSaida();
+                    escolha = 0;
                     break;
                 default:
                     System.out.println( "Opção Inválida! Tente novamente ou digite 0 para sair.");
-                    teclado.nextInt();
-
-                    
                 }
                 
-        } while (x != 0);
+        } while (escolha != 0);
+    }
+
+    private static int obterEscolhaMenu() {
+        exibirOpcoesMenu();
+        while (true) {
+            try{
+                System.out.println("Digite a opção desejada:");
+                return Integer.parseInt(teclado.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("Opção inválida! Tente novamente.");
+            }
             
-        //Scanner.close();
+        }
+    }
 
+    private static void exibirOpcoesMenu() {
+        System.out.println("Digite\n"
+                + "1-Cadastrar veículo rotativo;\n"
+                + "2-Cadastrar proprietário;\n"
+                + "3-Cadastrar veículo mensalista;\n"
+                + "4-Registrar acesso de usuário rotativo;\n"
+                + "5-Registrar acesso de usuário mensalista;\n"
+                + "6-Exibir veículos cadastrados;\n"
+                + "7-Exibir proprietários;\n"
+                + "8-Exibir listas de acessos;\n"
+                + "9-Exibir faturamento.\n"
+                + "0-Sair");
+    }
 
+    private static void exibirMensagemSaida() {
+        System.out.println( "Obrigado por utilizar o sistema de gerenciamento de estacionamento!");
     }
 
     public static double calcularFaturamento() {
         double total = 0;
         Veiculo vmensalista = new VeiculoMensalista();
     
-        // Calcula faturamento de mensalistas
         for (Veiculo veiculo : sisEstacionamento.getVeiculos()) {
             if (veiculo.getClass() == vmensalista.getClass()) {
-                total += 500; // Supondo que 500 seja a taxa fixa
+                total += 0.5; // Simplesmente não tem nenhuma explicação a taxa é só 500 mesmo
             }
         }
-    
-        // Calcula faturamento de acessos rotativos
+
         for (Acesso acesso : sisEstacionamento.getAcessos()) {
             if (acesso.getValor() != 0) {
                 total += acesso.getValor();
