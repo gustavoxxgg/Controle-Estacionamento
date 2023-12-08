@@ -38,9 +38,6 @@ public class SistemaEstacionamentoTest {
 
         verify(mockVeiculos, times(1)).cadastrar(veiculo);
     }
-
-    // Restante dos testes permanecem inalterados
-
     @Test
     public void testGetVeiculosIntegration() {
         List<Veiculo> veiculos = Arrays.asList(new Veiculo(), new Veiculo());

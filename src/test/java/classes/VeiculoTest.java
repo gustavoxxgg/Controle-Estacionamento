@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class VeiculoTest {
-    
+                                                        
     @Test
     public void VeiculoValido() throws DadosVeiculosIncompletosException {
         Veiculo veiculo = new Veiculo();
@@ -47,7 +47,6 @@ public class VeiculoTest {
         veiculo.setNumeroPlaca("");
         });
     }
-    //testes unitarios 
     @Test
     public void testSetMarca() throws DadosVeiculosIncompletosException {
         Veiculo veiculo = new Veiculo();

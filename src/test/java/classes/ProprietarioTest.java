@@ -65,6 +65,4 @@ public class ProprietarioTest {
 
         assertEquals("**Não cadastrado**", proprietario.getnResidencial());
     }
-
-    // Outros testes conforme necessário para cobrir todos os cenários
 }
